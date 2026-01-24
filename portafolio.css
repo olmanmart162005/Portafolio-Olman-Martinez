@@ -1,0 +1,257 @@
+:root {
+    --bg-main: #060e1b;
+    --bg-card: #0d1b2e;
+    --primary: #3b82f6;
+    --secondary: #60a5fa;
+    --text-main: #e5e7eb;
+    --text-muted: #bfdbfe;
+    --border-glow: rgba(59, 130, 246, 0.45);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: radial-gradient(circle at top, #0f2a4a, var(--bg-main));
+    color: var(--text-main);
+    line-height: 1.7;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(6, 14, 27, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-glow);
+    z-index: 1000;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+section {
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.presentacion {
+    min-height: 100vh;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 900px;
+    background: var(--bg-card);
+    padding: 45px;
+    border-radius: 22px;
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 0 35px rgba(59, 130, 246, 0.18);
+    text-align: center;
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+}
+
+.presentacion h1 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.descripcion {
+    margin-top: 15px;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.biografia h2,
+.proyectos h2,
+.contacto h2 {
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.biografia p {
+    margin-bottom: 18px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.proyecto {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid var(--border-glow);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.proyecto h3 {
+    color: var(--secondary);
+    margin-bottom: 12px;
+}
+
+.proyecto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+.contacto {
+    padding: 90px 20px;
+}
+
+.contacto .card {
+    max-width: 520px;
+    padding: 30px;
+}
+
+.contacto p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.info-contacto {
+    margin-bottom: 20px;
+}
+
+.formulario {
+    max-width: 360px;
+    margin: auto;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-glow);
+    background: transparent;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.formulario textarea {
+    height: 110px;
+    resize: none;
+}
+
+.formulario button {
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.formulario button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.7);
+}
+
+.footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: #040b16;
+    border-top: 1px solid var(--border-glow);
+}
+
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    section {
+        padding: 100px 15px;
+    }
+
+    .card {
+        padding: 35px 20px;
+    }
+
+    .presentacion h1 {
+        font-size: 1.7rem;
+    }
+
+    .contacto .card {
+        max-width: 100%;
+    }
+}
